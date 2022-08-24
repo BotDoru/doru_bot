@@ -28,7 +28,7 @@ async def on_ready():
     access_token = loads(oauth_key.text)["access_token"]
     token_type = 'Bearer '
     authorization = token_type + access_token
-    print(authorization)
+    print("-" + authorization)
     bang_on = 0
     while True:
         headers = {'Client-ID':twitch_Client_ID, 'Authorization': authorization}
@@ -52,6 +52,4 @@ async def on_member_join(member):
     embed=discord.Embed(title="아쿠아리욺에 오신 것을 환영합니다!", description=f"{member.mention}님 어서오세요!", color=0x0c5aff)
     await channel.send(embed=embed)
 
-
-    
 client.run(Token)
