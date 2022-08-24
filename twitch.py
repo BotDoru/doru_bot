@@ -2,11 +2,12 @@ import discord
 import requests
 import asyncio
 from json import loads
+import os
 
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
-Token = 'MTAxMTU3MTEyOTYyMzc4MTQwNg.GLclX1.RnWBkwG-qyVgj1AFLNGIICozJP8AbVenCQSsSU'
+Token = os.environ["BOT_TOKEN"]
 
 @client.event
 
@@ -51,4 +52,6 @@ async def on_member_join(member):
     embed=discord.Embed(title="아쿠아리욺에 오신 것을 환영합니다!", description=f"{member.mention}님 어서오세요!", color=0x0c5aff)
     await channel.send(embed=embed)
 
+
+    
 client.run(Token)
